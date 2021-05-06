@@ -21,7 +21,7 @@
  - [`git delta`](#git-delta)
  - [`git effort`](#git-effort)
  - [`git extras`](#git-extras)
- - [`git feature`](#git-featurerefactorbugchore)
+ - [`git feature`](#git-feature)
  - [`git force-clone`](#git-force-clone)
  - [`git fork`](#git-fork)
  - [`git fresh-branch`](#git-fresh-branch)
@@ -94,9 +94,9 @@ $ git extras update
 
 Sets up the `gh-pages` branch.  (See [GitHub Pages](https://pages.github.com/) documentation.)
 
-## git feature|refactor|bug|chore
+## git feature
 
-Create/Merge the given feature, refactor, bug or chore branch `name`:
+Create/Merge the given feature branch `name`:
 
 ```bash
 $ git feature dependencies
@@ -124,8 +124,6 @@ $ git feature finish dependencies
 ```
 
 _Note_: If a remote is setup to track the branch, it will be deleted.
-
-All of this works with `feature`, `bug`, `chore` or `refactor`.
 
 ## git contrib
 
@@ -265,7 +263,7 @@ usage: git bulk [-g] ([-a]|[-w <ws-name>]) <git command>
 ```bash
 $ git bulk --addworkspace personal ~/workspaces/personal
 ```
-  With option `--from` the URL to a single repository or a file containing multiple URLs can be added and they will be cloned diretly into the workspace. Suitable for the initial setup of a multi-repo project.
+  With option `--from` the URL to a single repository or a file containing multiple URLs can be added and they will be cloned directly into the workspace. Suitable for the initial setup of a multi-repo project.
 
 ```bash
 $ git bulk --addworkspace projectX ~/workspaces/projectx --from https://github.com/x/project-x.git
