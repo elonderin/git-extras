@@ -3,7 +3,8 @@ git-summary(1) -- Show repository summary
 
 ## SYNOPSIS
 
-`git-summary` [--line] [--dedup-by-email] [&lt;committish&gt;]
+ `git-summary` [--dedup-by-email] [--no-merges] [&lt;committish&gt;]  
+ `git-summary` --line [&lt;path&gt;]
 
 ## DESCRIPTION
 
@@ -14,6 +15,10 @@ Shows a summary of the repository.
   &lt;committish&gt;
 
   Summarize only the range of commits included in the &lt;committish&gt;.
+
+  &lt;path&gt;
+
+  Summarize only the range of files included in the &lt;path&gt;.
 
   --dedup-by-email
 
@@ -29,12 +34,16 @@ Shows a summary of the repository.
     ...
     248  TJ Holowaychuk            18.4%
 
-  This option can not be used together with `--line`.
+  --no-merges
+
+  Exclude merge commits.
 
   --line
 
   Summarize with lines other than commits.
-  Any &lt;committish&gt; is ignored when --line is specified.
+  When `--line` is specified, the last argument is treated as &lt;path&gt;.
+
+  This option can not be used together with `--dedup-by-email` or `--no-merges`.
 
 ## EXAMPLES
 
@@ -81,7 +90,14 @@ Shows a summary of the repository.
     authors  :
       ...
 
-  The committish is ignored when --line is specified.
+  Filter with the path:
+
+    $ git summary --line bin/
+
+    project  : git-extras
+    lines    : 4420
+    authors  :
+      ...
 
 ## AUTHOR
 

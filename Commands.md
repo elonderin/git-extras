@@ -1,4 +1,5 @@
 
+ - [`git abort`](#git-abort)
  - [`git alias`](#git-alias)
  - [`git archive-file`](#git-archive-file)
  - [`git authors`](#git-authors)
@@ -16,6 +17,7 @@
  - [`git create-branch`](#git-create-branch)
  - [`git delete-branch`](#git-delete-branch)
  - [`git delete-merged-branches`](#git-delete-merged-branches)
+ - [`git delete-squashed-branches`](#git-delete-squashed-branches)
  - [`git delete-submodule`](#git-delete-submodule)
  - [`git delete-tag`](#git-delete-tag)
  - [`git delta`](#git-delta)
@@ -220,8 +222,6 @@ project  : git-extras
 ```
 node (master): git effort --above 15 {src,lib}/*
 ```
-
-  ![git effort](http://f.cl.ly/items/0b0w0S2K1d100e2T1a0D/Screen%20Shot%202012-02-08%20at%206.43.34%20PM.png)
 
   If you wish to ignore files with commits `<=` a value you may use `--above`:
 
@@ -849,6 +849,17 @@ Deleted feature/themes (was c029ab3).
 Deleted feature/live_preview (was a81b002).
 Deleted feature/dashboard (was 923befa).
 ...
+```
+
+## git delete-squashed-branches
+
+Deletes branches that have been "squashed-merged" into a specified branch; this branch will be checked out as a side-effect. If no branch is specified, then it will default to the current checked out branch.
+
+```bash
+$ (feature-branch) git delete-squashed-branches main
+Deleted branch dependabot/bundler/kramdown-2.3.1 (was 1d3fb00).
+Deleted branch dependabot/bundler/rexml-3.2.5 (was a7e4052).
+$ (main) git ...
 ```
 
 ## git fresh-branch
@@ -1529,3 +1540,7 @@ total 308
 -rwxr-xr-x 1 vt vt 18561 Sep  5  2019 git-changelog
 -rwxr-xr-x 1 vt vt   215 Nov 19  2016 git-clear
 ```
+
+## git abort
+
+Abort current rebase, merge or cherry-pick, without the need to find exact command in history.
