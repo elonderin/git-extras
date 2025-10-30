@@ -34,7 +34,7 @@ do
       remote=$2
       shift
     else
-      remote="origin"
+      remote=$(git default-remote)
     fi
     ;;
   -s|--separator )
